@@ -1,6 +1,5 @@
 package engine;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,6 +19,8 @@ public class Game {
 	 * Dictionary of words
 	 */
 	private WordList wordList;
+	
+	
 	
 	
 	public Game(WordList wordList) throws EmptyDictionaryException {
@@ -50,14 +51,16 @@ public class Game {
 			System.out.println("Letters already tested : " + lettersUsed);
 			System.out.println("Chances left : " + trialsLeft);
 			System.out.println("Guess a letter : " + guessed);
-			System.out.flush();
+			
 			
 			char letter = s.nextLine().charAt(0);
+			String letStr = letter+"";
+			letStr = letStr.toUpperCase();
 			
-			if (!word.contains(letter +"" )) {
+			if (!word.contains(letStr )) {
 				trialsLeft --;
-				if (!lettersUsed.contains(letter+"")){
-					lettersUsed.add(letter+"");
+				if (!lettersUsed.contains(letStr)){
+					lettersUsed.add(letStr);
 				}
 			}
 			else {
@@ -83,7 +86,7 @@ public class Game {
 	}
 	
 	private String randomPic() throws WordNotFoundException {
-		return wordList.randomPic(10);
+		return wordList.randomPic();
 	}
 	
 	private ArrayList<Integer> getPositions(char letter, String word) {
@@ -94,4 +97,6 @@ public class Game {
 		}
 		return result;
 	}
+	
+	
 }
