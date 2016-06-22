@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author I327247
  *
  */
-public class Game {
+public class GameEngine {
 	
 	/**
 	 * Number max of trials
@@ -23,7 +23,7 @@ public class Game {
 	
 	
 	
-	public Game(WordList wordList) throws EmptyDictionaryException {
+	public GameEngine(WordList wordList) throws EmptyDictionaryException {
 		if (wordList.isEmpty())
 			throw new EmptyDictionaryException();
 		this.wordList = wordList;
@@ -86,7 +86,7 @@ public class Game {
 	}
 	
 	private String randomPic() throws WordNotFoundException {
-		return wordList.randomPic();
+		return wordList.randomPic(8);
 	}
 	
 	private ArrayList<Integer> getPositions(char letter, String word) {
