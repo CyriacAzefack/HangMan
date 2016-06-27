@@ -1,9 +1,12 @@
 package ui;
 
+import java.awt.AlphaComposite;
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -38,7 +41,19 @@ public class HangMan extends Canvas{
 		g2 = (Graphics2D) g;
 		
 		Image img = getImage();
-		g2.drawImage(img, 0, 0, null); 
+		
+		int width = getSize().width;
+		int height = getSize().height;
+		
+		
+		
+		//resize the image
+		BufferedImage resizedImage = resizeImage(img, width, height);
+		
+		g2.drawImage(resizedImage, 0, 0, null);
+		
+		
+		
 		
 		
 	
@@ -61,13 +76,35 @@ public class HangMan extends Canvas{
 		return img;
 	}
 	
+	private  BufferedImage resizeImage(Image originalImage, int width, int height){
+		BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		Graphics2D g = resizedImage.createGraphics();
+		g.drawImage(originalImage, 0, 0, width, height, null);
+		g.dispose();
+			
+		return resizedImage;
+	    }
+	
 	/**
 	 * Displays the next image
 	 */
-	public void next() {
-		if (state < NB_STATES-1) {
-			state++;
-			System.out.println("Next Image");
+	public boolean next() {
+		if (state >= NB_STATES-1)
+			return false;
+		
+		state++;
+		repaint();
+		return true;
+		
+	}
+	
+	/**
+	 * Displays the previous image
+	 */
+	public void previous() {
+		if (state > 0) {
+			state--;
+			System.out.println("Previous Image");
 			repaint();
 		}		
 	}

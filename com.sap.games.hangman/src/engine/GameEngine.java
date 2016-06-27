@@ -85,11 +85,11 @@ public class GameEngine {
 		
 	}
 	
-	private String randomPic() throws WordNotFoundException {
+	public String randomPic() throws WordNotFoundException {
 		return wordList.randomPic(8);
 	}
 	
-	private ArrayList<Integer> getPositions(char letter, String word) {
+	public ArrayList<Integer> getPositions(char letter, String word) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		for (int i=0; i<word.length(); i++){
 			if (word.charAt(i) == letter)
