@@ -1,6 +1,5 @@
 package ui;
 
-import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JTextField;
@@ -38,11 +37,7 @@ public class LetterBox extends JTextField{
 		//display();
 	}
 	
-	private void init() {
-		
-		
-		
-	}
+	
 	
 	@Override
 	public Document createDefaultModel() {

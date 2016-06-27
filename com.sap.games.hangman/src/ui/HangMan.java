@@ -1,11 +1,9 @@
 package ui;
 
-import java.awt.AlphaComposite;
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +19,7 @@ public class HangMan extends Canvas{
 	
 	private static final int WIDTH = 100, HEIGHT = 300;
 	private static final int NB_STATES = 8;
-	private static final String IMG_SRC_PATH = "src/ressources/img";
+	private static final String IMG_SRC_PATH = Game.INPUT_PATH + "/img";
 	
 	
 	private int state;

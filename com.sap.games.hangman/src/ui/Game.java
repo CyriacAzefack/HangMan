@@ -1,6 +1,5 @@
 package ui;
 
-import java.awt.Canvas;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -11,11 +10,12 @@ import engine.DuplicateWordException;
 import engine.EmptyDictionaryException;
 import engine.GameEngine;
 import engine.WordNotFoundException;
+import utils.FileManager;
 
 public class Game implements Runnable{
 	
 	
-
+	public static final String INPUT_PATH = FileManager.ressourceRootPath();
 	private static final int WIDTH = 800, HEIGHT = 600;
 	
 	private Thread thread;
@@ -97,8 +97,7 @@ public class Game implements Runnable{
 	
 	public static void main(String[] args) throws FileNotFoundException, DuplicateWordException, EmptyDictionaryException {
 		Dictionary dic = new Dictionary("Easy Words");
-		dic.addWordsFromFile(
-				"src/ressources/found.txt");
+		dic.addWordsFromFile(INPUT_PATH+ "/found.txt");
 		
 		Game g = new Game(dic);
 		g.start();

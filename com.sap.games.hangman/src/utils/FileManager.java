@@ -58,5 +58,13 @@ public class FileManager {
 	    bw.close();
 	}
 	
+	public static String ressourceRootPath() {
+		String path = System.getProperty("java.class.path");
+		path = path.substring(0, path.lastIndexOf("\\"));
+		
+		path += "/ressources";
+		return path;
+	}
+	
 	
 }
