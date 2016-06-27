@@ -86,7 +86,7 @@ public class GameEngine {
 	}
 	
 	public String randomPic() throws WordNotFoundException {
-		return wordList.randomPic(8);
+		return wordList.randomPic();
 	}
 	
 	public ArrayList<Integer> getPositions(char letter, String word) {

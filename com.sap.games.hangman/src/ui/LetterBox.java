@@ -69,6 +69,9 @@ public class LetterBox extends JTextField{
 	
 	public void display() {
 		setText(letter+"");
-		
+	}
+	
+	public boolean isDisplayed() {
+		return getText().equals(letter+"");
 	}
 }

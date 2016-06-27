@@ -28,7 +28,7 @@ public class Game implements Runnable{
 	
 	private String word;
 	
-	private int NbLettersFound;
+
 	
 	public Game(Dictionary dic) throws EmptyDictionaryException {
 		System.out.println("HANGMAN GAME!!");
@@ -84,7 +84,6 @@ public class Game implements Runnable{
 	}
 	
 	public ArrayList<Integer> play(char letter) {
-		NbLettersFound += gameEngine.getPositions(letter, word).size();
 		return gameEngine.getPositions(letter, word);
 	}
 	
@@ -105,10 +104,7 @@ public class Game implements Runnable{
 		g.start();
 	}
 
-	public boolean win() {
-		return (NbLettersFound == word.length());
-		
-	}
+	
 
 
 }
